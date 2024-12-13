@@ -16,11 +16,22 @@ if (array_key_exists ("id", $_GET) &&
 	$locale = $_GET[ 'locale' ];
 
 	ob_start();
+
+
+	/*
 	if ($locale == 'en') {
 		eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.php" ) . '<?php ' );
 	} else {
 		eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/help/help.{$locale}.php" ) . '<?php ' );
 	}
+	*/
+
+    if ($locale == 'en') {
+           eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . htmlspecialchars("vulnerabilities/{$id}/help/help.php") ) . '<?php ' );
+        } else {
+           eval( '?>' . file_get_contents( DVWA_WEB_PAGE_TO_ROOT . htmlspecialchars("vulnerabilities/{$id}/help/help.{$locale}.php") ) . '<?php ' );
+        }
+
 	$help = ob_get_contents();
 	ob_end_clean();
 } else {
