@@ -15,6 +15,8 @@ if (array_key_exists ("id", $_GET) &&
 	$security = $_GET[ 'security' ];
 	$locale = $_GET[ 'locale' ];
 
+    $id = filter_var($id, FILTER_SANITIZE_STRING);
+
 	ob_start();
 
 
