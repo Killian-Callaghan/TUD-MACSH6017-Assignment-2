@@ -2,7 +2,7 @@
 function encrypt ($plaintext, $key) {
 	// $e = openssl_encrypt($plaintext, 'aes-128-ecb', $key, OPENSSL_PKCS1_PADDING);
 
-	$e = openssl_encrypt($plaintext, 'aes-256-ecb', $key, OPENSSL_PKCS1_PADDING);
+	$e = openssl_encrypt($plaintext, 'aes-256-cbc', $key, OPENSSL_PKCS1_PADDING);
 
 	if ($e === false) {
 		throw new Exception ("Encryption failed");
@@ -12,7 +12,7 @@ function encrypt ($plaintext, $key) {
 function decrypt ($ciphertext, $key) {
 	// $e = openssl_decrypt($ciphertext, 'aes-128-ecb', $key, OPENSSL_PKCS1_PADDING);
 
-	$e = openssl_decrypt($ciphertext, 'aes-256-ecb', $key, OPENSSL_PKCS1_PADDING);
+	$e = openssl_decrypt($ciphertext, 'aes-256-cbc', $key, OPENSSL_PKCS1_PADDING);
 
 	if ($e === false) {
 		throw new Exception ("Decryption failed");
