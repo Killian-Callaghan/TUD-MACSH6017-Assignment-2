@@ -8,8 +8,7 @@ if (array_key_exists ("redirect", $_GET) && $_GET['redirect'] != "") {
 		<?php
 		exit;
 	} else {
-		//header ("location: " . $_GET['redirect']);
-		("location: index.php");
+		header ("location: " . $_GET['redirect']);
 		exit;
 	}
 }
